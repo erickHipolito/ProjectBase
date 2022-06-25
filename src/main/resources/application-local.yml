@@ -1,0 +1,27 @@
+server:
+  port: 8055
+spring:
+#  datasource:
+#    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+#    username: userdb
+#    password: secret
+#    url: jdbc:sqlserver://serversqlenterprise.database.windows.net;databaseName=ENTERPRISE-BACKOFFICE-DEV
+#    hikari:
+#      maximum-pool-size: 5
+#      pool-name: enterprise-ms
+#  jpa:
+#    database: sql-server
+#    show-sql: 'false'
+#    hibernate:
+#      naming:
+#        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+#        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+#      ddl-auto: update
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://cognito-idp.us-east-1.amazonaws.com/us-east-1_kVizoKvnr

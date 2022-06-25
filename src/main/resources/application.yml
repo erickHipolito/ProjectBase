@@ -1,0 +1,26 @@
+server:
+  port: ${WEBSITES_PORT}
+spring:
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    username: ${ENTERPRISE_DB_USER}
+    password: ${ENTERPRISE_DB_PASS}
+    url: ${ENTERPRISE_DB}
+    hikari:
+      maximum-pool-size: 5
+      pool-name: enterprise-ms
+  jpa:
+    database: sql-server
+    hibernate:
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: update
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${COGNITO_URL}
